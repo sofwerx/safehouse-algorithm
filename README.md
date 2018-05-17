@@ -1,5 +1,8 @@
 
-# Safehouse Algorithm
+
+# General
+
+## Safehouse Algorithm
 The safehouse algorithm was used to identify if the adversary was conducting attack behavior to the safehouse. The data sources used from elasticsearch was:
 
 1. "ifttt"
@@ -15,6 +18,7 @@ The models chosen is the apriori algorithm. This model was chosen for its robust
 ### Note:
 This code and algorithm were used for Proof of Concept. Please do not deploy this code into a production environment. This model can be used as a baseline for the model selection and validation process.
 
+# Code to Run
 
 ### Steps:
 
@@ -51,3 +55,17 @@ cd /home/david/Documents/safehouse-algorithm/prod
 ```
 python3 codetorun.py
 ```
+
+
+# Access Data from Github
+
+If you would like to train a new model please clone this repo https://github.com/sofwerx/safehouse-data.git .
+
+The data in this repo is in JSON format. Each hit in the JSON files is an observation. I trained this model by treating each observation as an action and modeled a sequence of action.
+
+Data to retrain the model provided in the Safehouse Algorithm Repo:
+
+1. Select data sources listed in General
+2. Standardize format for the time across JSON files
+3. Concatenate all features for each observation keep time as a separate feature.
+4. Append data sources and sort data by the standardized while keeping time feature.
